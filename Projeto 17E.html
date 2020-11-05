@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+	<title>Ficha1 - Exercicios</title>
+</head>
+<body style="font-family: Calibri; ">
+		<h1 style="font-size: 120px; text-align: center;">Ficha Exercícios</h1>
+	<br>
+	<hr style="border: 3px solid black;">
+	<table align="center" >
+		<tr>
+			<td width="10%">
+			</td>
+			<td width="90%" align="center" style="text-align: justify;">
+				<div align="center">
+					<h1 align="center" id="hform1">Exercicio 1 - Média</h1><br>
+				<form name="form1" id="form1" hidden="true">
+					Nota 1
+					<input type="text" name="nota1"><br><br>
+					Nota 2 
+					<input type="text" name="nota2"><br><br>
+					Nota 3
+					<input type="text" name="nota3"><br><br>
+					Media
+					<input type="text" name="media" disabled="true"><br><br><br>
+
+					<input type="button" value="calcular Media" onclick="calcular();">
+
+					<input type="reset" value="Limpar" name="resetbutton">
+
+
+				</form>
+
+					<script type="text/javascript">
+						function calcular()
+						{
+							var nota1 = document.form1.nota1.value;
+							var nota2 = document.form1.nota2.value;
+							var nota3 = document.form1.nota3.value;
+							var soma = Number(nota1)+Number(nota2)+Number(nota3);
+							document.form1.media.value = soma/3;
+						}
+					</script>
+				</div>
+
+				<br><br><br><br><br><br>
+				<hr  style="border: 3px solid red;">
+			<h1 align="center" id="hform2"> Exercicio 2 - IVA</h1>
+				<div align="center">
+						 	<form  name="form2" id="form2" hidden="true">
+						 		Custo do produto (€)
+						 		<input size="3" type="text" name="custo"><br><br>
+
+						 		Taxa IVA
+						 		<select name="taxaiva">
+								  <option value="23">23%</option>
+								  <option value="15">15%</option>
+								  <option value="10">10%</option>
+								</select><br><br>
+
+								Total IVA
+								<input type="text" name="tiva" disabled="true" size="3"><br><br>
+
+								<input type="button" value="calcular IVA" onclick="calculariva();">
+
+								<input type="reset" value="Apagar" name="resetbutton2">
+
+
+						 	</form>
+
+						 	<script type="text/javascript">
+						 		function calculariva()
+						 		{
+						 			var custo = Number(document.form2.custo.value);
+
+						 			var taxaiva = Number(document.form2.taxaiva.value);
+
+						 			var tiva = custo*(taxaiva/100);
+
+						 			document.form2.tiva.value = tiva;
+
+						 		}
+
+						 	</script>
+				</div>
+				<br><br><br><br><br><br>
+				<hr style="border: 3px solid red;">
+			<div align=" center">
+				<h1 align="center" id="hform3">Exercicio 3 - Calculadora</h1>
+					<form name= "form3" id="form3" hidden="true">
+						<br>Valor 1:<br><input size="3" type="text" name="v1"><br>
+						<br>Valor 2:<br><input size="3" type="text" name="v2"><br><br>
+						Operação
+						<select name="funcoes" >
+						  <option value="som">soma</option>
+						  <option value="divi">divisão</option>
+						  <option value="mult">multiplicação</option>
+						  <option value="sub">subtração</option>
+						</select><br><br>
+						Resultado:<input type="text" name="text3" readonly disabled="true"><br><br>
+						<input type="button" value="Calcular" onclick="operacao();" />
+						<input type="reset" value="Limpar" name="resetbutton3" />
+					</form>
+
+					<script type="text/javascript">
+
+					function operacao()
+					    {
+					        var valor1 = document.form3.v1.value;
+					        var valor2 = document.form3.v2.value;
+					        if (document.form3.funcoes.value == "som"){
+					            var resut = Number(valor1)+Number(valor2);
+					        }
+					        if (document.form3.funcoes.value == "divi"){
+					            var resut = Number(valor1)/Number(valor2);
+					        }
+					        if (document.form3.funcoes.value == "mult"){
+					            var resut = Number(valor1)*Number(valor2);
+					        }
+					        if (document.form3.funcoes.value == "sub"){
+					            var resut = Number(valor1)-Number(valor2);
+					        }
+					        document.form3.text3.value = resut;
+					    }
+					</script>
+			   </div> 
+				<br><br><br><br><br><br>
+			<hr style="border: 3px solid red;">
+				<div align="center">
+					<h1 align="center" id="hform4">Exercicio 4 - IMC</h1>
+					<form name="form4" id="form4" hidden="true">
+						Peso
+						<input type="text" size="3" name="peso"><br><br>
+
+						Altura (m)
+						<input type="text" size="3" name="altura"><br><br>
+
+						IMC
+						<input type="text" size="3" name="imc" disabled="true"><br><br>
+
+						Aviso
+						<input type="text" size="20" name="aviso" disabled="true"><br><br>
+
+						<input type="button" value="Calcular" onclick="calcularimc();">
+						
+						<input type="reset" value="Apagar" name="resetbutton4">
+
+					</form>
+					<br><br><br><br><br><br>
+					<script type="text/javascript">
+						function calcularimc()
+						{
+							var peso = Number(document.form4.peso.value);
+							var altura = Number(document.form4.altura.value);
+							var imc = peso/(altura*altura)*10000;
+
+							document.form4.imc.value = imc;
+							if(imc <18.5 )
+							{
+								aviso = "Abaixo do Peso";
+							}
+							else if(imc >= 18.5 && imc <25)
+							{
+								aviso = "Peso Normal";
+							}
+							else if(imc>= 25 && imc <30)
+							{
+								aviso = "Sobrepeso";
+							}
+							else if(imc>=30 && imc <35)
+							{
+								aviso = "Obesidade Grau I";
+							}
+							else if (imc >= 35 && imc <40)
+							{
+								aviso = "Obesidade Grau II";
+							}
+							else if (imc >= 40)
+							{
+								aviso = "Obesidade Grau III Ou Mórbida";
+							}
+
+							document.form4.aviso.value = aviso;
+
+						}
+
+					</script>
+
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+					<script>
+					$(document).ready(function(){
+						$("#hform1").hover(function(){
+						  $("#form1").show();
+						});
+						$("#form1").mouseleave(function(){
+						  $("#form1").hide();
+						});
+						$("#hform2").hover(function(){
+						  $("#form2").show();
+						});
+						$("#form2").mouseleave(function(){
+						  $("#form2").hide();
+						});
+						$("#hform3").hover(function(){
+						  $("#form3").show();
+						});
+						$("#form3").mouseleave(function(){
+						  $("#form3").hide();
+						});
+						$("#hform4").hover(function(){
+						  $("#form4").show();
+						});
+						$("#form4").mouseleave(function(){
+						  $("#form4").hide();
+						});
+
+
+
+
+					});
+					</script>
+				</div>
+			</td>
+			<td width="10%">
+			</td>
+		</tr>
+	</table>
+		<hr style="border: 3px solid black;">
+				<h1 style="font-size: 80px; text-align: center;">Turma 12ºB - Márcio Valério, nº14</h1>
+		<br>
+</body>
+</html>
